@@ -1,8 +1,8 @@
 var express = require('express');
 const path = require('path');
 const app = express();
-const pathToIndex = path.resolve('./../client/photos/index.html');
+var pathToIndex = path.resolve('D:/amway-renewal/node-express-image-processing-server/client','./index.html');
 app.use('/*', function (req, res) {
-  res.sendFile(pathToIndexgit config --global user.email "youremail@yourdomain.com");
+  res.sendFile(pathToIndex);
 })
-module.exports(app);
+module.exports=app;
