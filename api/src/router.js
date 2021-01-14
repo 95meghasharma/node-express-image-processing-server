@@ -3,7 +3,7 @@ const multer = require('multer');
 const { call } = require('ramda');
 const { requests } = require('sinon');
 const router = Router();
-const storage = multer.diskStorage({ destination: 'api/uploads/', filename: fileName() });
+const storage = multer.diskStorage({ destination: 'api/uploads/', filename: fileName});
 const upload = multer({
   fileFilter: fileFilter,
   storage: storage
