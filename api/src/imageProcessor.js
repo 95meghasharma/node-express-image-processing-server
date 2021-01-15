@@ -3,6 +3,9 @@ const path = require('path');
 const { Worker, isMainThread } = require('worker_threads');
 const pathToResizeWorker = path.resolve(__dirname, 'resizeWorker.js');
 const pathToMonochromeWorker = path.resolve(__dirname, 'monochromeWorker.js');
+const uploadPathResolver = (filename) => {
+  return path.resolve(__dirname, '../uploads', filename);
+};
 const imageProcessor = function (filename) {
   const sourcePath = uploadPathResolver(filename);
   const resizedDestination = uploadPathResolver('resized-' + filename);
@@ -59,8 +62,5 @@ const imageProcessor = function (filename) {
       reject(new Error('not on main thread'));
     }
   });
-}
-const uploadPathResolver = function (filename) {
-  path.resolve(__dirname, '../uploads', filename);
 }
 module.exports = imageProcessor;
