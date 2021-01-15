@@ -2,9 +2,11 @@ const {Router} = require('express');
 const multer = require('multer');
 const path = require('path');
 const imageProcessor = require('./imageProcessor');
-
+const photoPath = path.resolve(__dirname, '../../client/photo-viewer.html');
 const router = Router();
-
+router.get('/photo-viewer', (request, response) => {
+  response.sendFile(photoPath);
+})
 const filename = (request, file, callback) => {
   callback(null, file.originalname);
 };
